@@ -27,7 +27,7 @@
            title="close menu">
             <i class="fa fa-remove"></i>
         </a>
-        <img src="https://res.cloudinary.com/dzk3cvgwt/image/upload/v1562857595/facebook_1562857067596_g8baaw.jpg"
+        <img src="https://res.cloudinary.com/dzk3cvgwt/image/upload/v1564413116/Anonymous-2-512_wxqovf.png"
              style="width:45%;" class="w3-round"><br><br>
         <h4><b>My Blog</b></h4>
         <p class="w3-text-grey">Template by W3.CSS</p>
@@ -81,8 +81,11 @@
             <h5 class="card-title" th:text="${var.title}"></h5>
             <h6 class="card-subtitle mb-2 text-muted" th:text="${var.sentby}"></h6>
             <!--<div class="jumbotron">-->
-            <img class="card-img-top" th:src="${var.headshot}"
-                 style="width: 1000px; height: 500px; background-color: rgba(0,0,255,0.1); position: center">
+            <th:block th:if="${var.headshot != null}">
+                <img class="card-img-top" th:src="${var.headshot}"
+                     style="width: 1000px; height: 500px; background-color: rgba(0,0,255,0.1); position: center">
+            </th:block>
+
             <p class="card-text" th:text="${var.content}"></p>
 
             <p>

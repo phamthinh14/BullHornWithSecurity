@@ -50,6 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .formLogin().loginPage("/login").permitAll()
+
                 // ^ this is the page ppl see if they've not logged in yet
 
                 .and()
