@@ -29,16 +29,18 @@
         </a>
         <img src="https://res.cloudinary.com/dzk3cvgwt/image/upload/v1564413116/Anonymous-2-512_wxqovf.png"
              style="width:45%;" class="w3-round"><br><br>
-        <h4><b>My Blog</b></h4>
+        <h4><b>????Think of a name</b></h4>
         <p class="w3-text-grey">Template by W3.CSS</p>
     </div>
     <div class="w3-bar-block">
-        <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i
-                class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a>
-        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
-                class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a>
-        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
-                class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>
+        <a href="/login" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i
+                class="fa fa-th-large fa-fw w3-margin-right"></i>Login</a>
+        <a href="/home" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
+                class="fa fa-user fa-fw w3-margin-right"></i> Welcome <span th:text="${#authentication.name}"></span></a>
+        <a href="/register" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
+                class="fa fa-envelope fa-fw w3-margin-right"></i>REGISTER</a>
+        <a href="/login" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
+                class="fa fa-envelope fa-fw w3-margin-right"></i>LOGIN</a>
     </div>
     <div class="w3-panel w3-large">
         <a href="https://www.facebook.com/" class="fa fa-facebook-official w3-hover-opacity"></a>
@@ -66,14 +68,15 @@
                 class="fa fa-bars"></i></span>
 
         <div class="w3-container">
-            <h1><b>My Blog</b></h1>
+            <h1><b><a href="/">News Feed</a></b></h1>
             <div class="w3-section w3-bottombar w3-padding-16">
-                <a class="w3-button w3-black" href="/home" sec:authorize="isAuthenticated()">
-                    Welcome <span th:text="${#authentication.name}"></span>
-                </a>
-                <a class="w3-button w3-black" sec:authorize="hasAuthority('ADMIN')" href="/adminhome">
-                    List View For Admin</a>
+                <!--<a class="w3-button w3-black" href="/" sec:authorize="!isAuthenticated()">-->
+                <!--Welcome <span th:text="${#authentication.name}"></span>-->
+                <!--</a>-->
+                <!--<a class="w3-button w3-black" sec:authorize="hasAuthority('ADMIN')" href="/adminhome">-->
+                <!--List View For Admin</a>-->
                 <a class="w3-button w3-black" href="/addnew">Add a Message</a>
+                <a class="w3-button w3-black" href="/home">Profile</a>
                 <a class="w3-button w3-black" href="/logout">Logout</a>
             </div>
         </div>
@@ -95,12 +98,15 @@
                 <small th:text="${var.date}"></small>
             </p>
 
-            <a class="btn btn-outline-primary" th:href="@{/update/{id} (id=${var.id})}">Update Message</a>
+            <a class="btn btn-outline-primary"
+               th:href="@{/update/{id} (id=${var.id})}">Update Message</a>
 
-            <a class="btn btn-outline-primary" th:href="@{/update/pic/{id} (id=${var.id})}">Update Message Picture</a>
+            <a class="btn btn-outline-primary"
+               th:href="@{/update/pic/{id} (id=${var.id})}">Update Message Picture</a>
             <a class="btn btn-outline-primary" th:href="@{/detail/{id} (id=${var.id})}">Details</a>
 
-            <a class="btn btn-outline-primary" th:href="@{/delete/{id} (id=${var.id})}">Delete</a>
+            <a class="btn btn-outline-primary"
+               th:href="@{/delete/{id} (id=${var.id})}">Delete</a>
 
         </div>
     </div>

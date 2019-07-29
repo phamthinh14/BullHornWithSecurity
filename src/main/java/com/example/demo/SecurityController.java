@@ -72,8 +72,10 @@ public class SecurityController {
 //    }
 
     @RequestMapping("/")
-    public String index() {
-        return "list";
+    //This will list all the messages
+    public String index(Model model) {
+        model.addAttribute("messages", messageRepository.findAll());
+        return "index";
     }
 
     @RequestMapping("/login")
@@ -103,13 +105,16 @@ public class SecurityController {
     @RequestMapping("/home")
     public String listMessage(Model model) {
         model.addAttribute("messages", messageRepository.findAllByUsers(userService.getUser()));
+//        model.addAttribute("messages", messageRepository.findAll());
         return "list";
     }
+
     @RequestMapping("/adminhome")
     public String listMessageForAdmin(Model model) {
         model.addAttribute("messages", messageRepository.findAll());
         return "list";
     }
+
     //     @GetMapping("/addnew"): This is to let user add a new message
 //@PostMapping("/process"): This is to let the user post a picture only
 //@PostMapping("/addnew"): This is to let the user post the message only and validate them if it is too short
