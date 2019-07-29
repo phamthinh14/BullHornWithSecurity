@@ -59,7 +59,7 @@
     <!-- Header -->
     <header id="Pictures Blog">
         <a href="#"><img
-                src="https://res.cloudinary.com/dzk3cvgwt/image/upload/v1562857595/facebook_1562857067596_g8baaw.jpg"
+                src="https://res.cloudinary.com/dzk3cvgwt/image/upload/v1564413116/Anonymous-2-512_wxqovf.png"
                 style="width:65px;"
                 class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
         <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i
@@ -68,12 +68,15 @@
         <div class="w3-container">
             <h1><b>My Blog</b></h1>
             <div class="w3-section w3-bottombar w3-padding-16">
-                <a class="w3-button w3-black" href="/">Home</a>
+                <a class="w3-button w3-black" href="/home" sec:authorize="isAuthenticated()">
+                    Welcome <span th:text="${#authentication.name}"></span>
+                </a>
+                <a class="w3-button w3-black" sec:authorize="hasAuthority('ADMIN')" href="/adminhome">
+                    List View For Admin</a>
                 <a class="w3-button w3-black" href="/addnew">Add a Message</a>
                 <a class="w3-button w3-black" href="/logout">Logout</a>
             </div>
         </div>
-
     </header>
     <!--<div th:replace="base :: footer"></div>-->
     <div class="card" style="width: 85rem;" th:each="var:${messages}">

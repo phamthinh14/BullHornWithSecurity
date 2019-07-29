@@ -99,12 +99,17 @@ public class SecurityController {
     //====================================================================================================================
 //        Below is what I added
 //    ___________________________________________________________________________________________________________________
+    //User view their own posts with this method
     @RequestMapping("/home")
     public String listMessage(Model model) {
         model.addAttribute("messages", messageRepository.findAllByUsers(userService.getUser()));
         return "list";
     }
-
+    @RequestMapping("/adminhome")
+    public String listMessageForAdmin(Model model) {
+        model.addAttribute("messages", messageRepository.findAll());
+        return "list";
+    }
     //     @GetMapping("/addnew"): This is to let user add a new message
 //@PostMapping("/process"): This is to let the user post a picture only
 //@PostMapping("/addnew"): This is to let the user post the message only and validate them if it is too short
