@@ -56,6 +56,7 @@
     <!-- Overlay effect when opening sidebar on small screens -->
     <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
          title="close side menu" id="myOverlay"></div>
+
 </th:block>
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px">
@@ -75,8 +76,10 @@
                 <div class="w3-section w3-bottombar w3-padding-16">
                     <a class="w3-button w3-black" sec:authorize="hasAuthority('ADMIN')" href="/adminhome">
                         List View For Admin</a>
+                    <a class="w3-button w3-black" sec:authorize="hasAuthority('ADMIN')" href="/home">
+                        Edited Post</a>
                     <a class="w3-button w3-black" href="/addnew" sec:authorize="isAuthenticated()">Add a Message</a>
-                    <a class="w3-button w3-black" href="/home" sec:authorize="isAuthenticated()">Profile</a>
+                    <a class="w3-button w3-black" href="/home" sec:authorize="hasAuthority('USER')">Profile</a>
                     <a class="w3-button w3-black" href="/logout" sec:authorize="isAuthenticated()">Logout</a>
                 </div>
             </div>
